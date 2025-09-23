@@ -1,31 +1,24 @@
 import React, { useState } from 'react';
 import { useAppContext } from '@/contexts/AppContext';
+import { useAuth } from '@/contexts/AuthContext';
 import { useIsMobile } from '@/hooks/use-mobile';
 import Header from './Header';
 import NewsCard from './NewsCard';
 import { allArticles as articles, Article } from '@/data/articles';
-import LoginModal from './LoginModal';
 import ArticleModal from './ArticleModal';
 import Footer from './Footer';
 import StatsSection from './StatsSection';
+import { toast } from '@/components/ui/use-toast';
 
 const AppLayout: React.FC = () => {
   const { sidebarOpen, toggleSidebar } = useAppContext();
+  const { user, profile, updateProfile } = useAuth();
   const isMobile = useIsMobile();
   
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [userTokens, setUserTokens] = useState(0);
-  const [showLoginModal, setShowLoginModal] = useState(false);
   const [selectedArticle, setSelectedArticle] = useState<Article | null>(null);
   const [readArticles, setReadArticles] = useState<Set<string>>(new Set());
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedCategory, setSelectedCategory] = useState<string>('All');
-
-  const handleLogin = (email: string, password: string) => {
-    setIsLoggedIn(true);
-    setUserTokens(100); // Starting tokens
-    setShowLoginModal(false);
-  };
 
   const handleReadArticle = (articleId: string) => {
     const article = articles.find(a => a.id === articleId);
@@ -34,13 +27,27 @@ const AppLayout: React.FC = () => {
     }
   };
 
-  const handleCompleteReading = (articleId: string) => {
+  const handleCompleteReading = async (articleId: string) => {
+    if (!user || !profile) {
+      toast({
+        title: "Please login",
+        description: "You need to be logged in to earn tokens",
+        variant: "destructive"
+      });
+      return;
+    }
+
     if (!readArticles.has(articleId)) {
       setReadArticles(new Set([...readArticles, articleId]));
-      setUserTokens(prev => prev + 50); // Reward 50 Naira tokens
       
-      // Show completion notification
-      alert('Congratulations! You earned ₦50 for reading this article!');
+      // Update user tokens
+      const newTokens = (profile.tokens || 0) + 50;
+      await updateProfile({ tokens: newTokens });
+      
+      toast({
+        title: "Congratulations! 🎉",
+        description: "You earned ₦50 for reading this article!",
+      });
     }
   };
 
@@ -55,12 +62,7 @@ const AppLayout: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-gray-50">
-      <Header 
-        onLogin={() => setShowLoginModal(true)}
-        onSearch={setSearchQuery}
-        isLoggedIn={isLoggedIn}
-        userTokens={userTokens}
-      />
+      <Header onSearch={setSearchQuery} />
 
       {/* Hero Section */}
       <section className="relative bg-gradient-to-r from-red-600 to-red-800 text-white">
@@ -75,12 +77,21 @@ const AppLayout: React.FC = () => {
               Join thousands of readers earning while staying informed.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
-              <button 
-                onClick={() => setShowLoginModal(true)}
-                className="bg-white text-red-600 px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors"
-              >
-                Start Reading & Earning
-              </button>
+              {user ? (
+                <div className="flex items-center gap-4">
+                  <span className="text-white text-lg">Welcome back, {profile?.username}!</span>
+                  <div className="bg-white text-red-600 px-6 py-3 rounded-lg font-semibold">
+                    Balance: ₦{profile?.tokens || 0}
+                  </div>
+                </div>
+              ) : (
+                <a 
+                  href="/login"
+                  className="bg-white text-red-600 px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors inline-block text-center"
+                >
+                  Start Reading & Earning
+                </a>
+              )}
               <button className="border-2 border-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-white hover:text-red-600 transition-colors">
                 Learn More
               </button>
@@ -123,18 +134,12 @@ const AppLayout: React.FC = () => {
 
       <StatsSection />
 
-      <LoginModal
-        isOpen={showLoginModal}
-        onClose={() => setShowLoginModal(false)}
-        onLogin={handleLogin}
-      />
-
       <ArticleModal
         article={selectedArticle}
         isOpen={!!selectedArticle}
         onClose={() => setSelectedArticle(null)}
         onComplete={handleCompleteReading}
-        isLoggedIn={isLoggedIn}
+        isLoggedIn={!!user}
       />
 
       <Footer />
