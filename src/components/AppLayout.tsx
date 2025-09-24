@@ -69,25 +69,25 @@ const AppLayout: React.FC = () => {
         <div className="absolute inset-0 bg-black opacity-50"></div>
         <div className="relative container mx-auto px-4 py-16">
           <div className="max-w-4xl">
-            <h1 className="text-5xl font-bold mb-4">
+            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4">
               Stay Informed, Get Rewarded
             </h1>
-            <p className="text-xl mb-8">
+            <p className="text-lg sm:text-xl mb-8">
               Read quality news and earn tokens for every article you complete. 
               Join thousands of readers earning while staying informed.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               {user ? (
-                <div className="flex items-center gap-4">
-                  <span className="text-white text-lg">Welcome back, {profile?.username}!</span>
-                  <div className="bg-white text-red-600 px-6 py-3 rounded-lg font-semibold">
+                <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4">
+                  <span className="text-white text-base sm:text-lg">Welcome back, {profile?.username}!</span>
+                  <div className="bg-white text-red-600 px-4 sm:px-6 py-2 sm:py-3 rounded-lg font-semibold text-sm sm:text-base">
                     Balance: ₦{profile?.tokens || 0}
                   </div>
                 </div>
               ) : (
                 <a 
                   href="/login"
-                  className="bg-white text-red-600 px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors inline-block text-center"
+                  className="bg-white text-red-600 px-6 sm:px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors inline-block text-center text-sm sm:text-base"
                 >
                   Start Reading & Earning
                 </a>

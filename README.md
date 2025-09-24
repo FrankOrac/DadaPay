@@ -1,17 +1,48 @@
-# Read Earn Naira 📚💰
+# dadapay - Read & Earn 📚💰
 
-A modern news reading platform where users earn Naira tokens for reading quality articles. Stay informed while getting rewarded for your engagement with news content.
+A modern news reading platform where users earn rewards for reading quality articles. Stay informed while getting rewarded for your engagement with news content.
 
-![Read Earn Naira](https://img.shields.io/badge/Status-Live-green) ![React](https://img.shields.io/badge/React-18.3.1-blue) ![TypeScript](https://img.shields.io/badge/TypeScript-5.5.3-blue)
+![dadapay](https://img.shields.io/badge/Status-Live-green) ![React](https://img.shields.io/badge/React-18.3.1-blue) ![TypeScript](https://img.shields.io/badge/TypeScript-5.5.3-blue) ![PostgreSQL](https://img.shields.io/badge/PostgreSQL-Database-blue)
 
 ## 🌟 Features
 
 ### Core Functionality
-- **📖 Article Reading**: Access quality news articles across multiple categories
-- **💰 Token Rewards**: Earn ₦50 Naira tokens for each completed article
+- **📖 Quality Content**: Curated articles across multiple categories
+- **💰 Token Rewards**: Earn ₦50 tokens for each completed article
 - **🔐 User Authentication**: Secure login system to track progress
 - **🔍 Search & Filter**: Find articles by keywords and filter by categories
-- **📱 Responsive Design**: Optimized for desktop and mobile devices
+- **📱 Responsive Design**: Fully optimized for all devices and screen sizes
+- **🛡️ Role-Based Access**: Different access levels for users, editors, and admins
+- **✏️ Content Management**: Full CMS for editors and admins to create articles
+
+## 🚀 Demo Accounts
+
+### For Testing and Demonstration
+
+Since this is a demo application, you can use these pre-created accounts to explore different features:
+
+#### Regular User Account
+- **Username**: `user_demo`
+- **Email**: `user@dadapay.demo` 
+- **Password**: `demo123`
+- **Features**: Read articles, earn tokens, view dashboard
+- **Starting Balance**: ₦1,250 tokens
+
+#### Admin Account  
+- **Username**: `admin_demo`
+- **Email**: `admin@dadapay.demo`
+- **Password**: `admin123`
+- **Features**: Full access - manage users, articles, view analytics
+- **Starting Balance**: ₦5,000 tokens
+
+#### Editor Account
+- **Username**: `editor_demo`  
+- **Email**: `editor@dadapay.demo`
+- **Password**: `editor123`
+- **Features**: Create and edit articles, moderate content
+- **Starting Balance**: ₦2,500 tokens
+
+> **Note**: These are demo accounts for testing purposes. In a production environment, users would create their own accounts through the registration system.
 
 ### Categories
 - Politics

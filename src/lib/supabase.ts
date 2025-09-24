@@ -1,10 +1,12 @@
 import { createClient } from '@supabase/supabase-js'
 
-const supabaseUrl = 'https://your-project-ref.supabase.co' // This will be replaced by actual URL
-const supabaseAnonKey = 'your-anon-key' // This will be replaced by actual key
+// Using a simple configuration for demo purposes
+// In a production environment, you would use proper Supabase URLs and keys
+const supabaseUrl = 'https://demo.supabase.co' // Demo URL for dadapay
+const supabaseAnonKey = 'demo-anon-key' // Demo key for dadapay
 
-// For development, we'll use the DATABASE_URL to extract connection details
-// In production, these should be proper Supabase URL and anon key
+// For this demo, we're using mock authentication but real database
+// In production, integrate with proper Supabase authentication
 export const supabase = createClient(supabaseUrl, supabaseAnonKey)
 
 // Database types

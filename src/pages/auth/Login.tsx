@@ -94,7 +94,7 @@ const Login: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-red-50 to-red-100 flex items-center justify-center p-4">
-      <div className="w-full max-w-md">
+      <div className="w-full max-w-md mx-auto">
         <div className="mb-6">
           <Link 
             to="/"
@@ -108,10 +108,10 @@ const Login: React.FC = () => {
         <Card className="w-full">
           <CardHeader className="text-center">
             <CardTitle className="text-2xl font-bold text-gray-900">
-              Welcome to Read Earn Naira
+              Welcome to dadapay
             </CardTitle>
             <CardDescription>
-              Sign in to start earning tokens for reading quality articles
+              Sign in to start earning rewards for reading quality articles
             </CardDescription>
           </CardHeader>
           <CardContent>

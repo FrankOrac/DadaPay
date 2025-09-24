@@ -33,8 +33,8 @@ const StatsSection: React.FC = () => {
     <section className="bg-white py-16">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
-          <h2 className="text-3xl font-bold text-gray-900 mb-4">
-            NewsHub by the Numbers
+          <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-4">
+            dadapay by the Numbers
           </h2>
           <p className="text-gray-600 max-w-2xl mx-auto">
             Join thousands of readers who are already earning tokens while staying informed 
@@ -42,7 +42,7 @@ const StatsSection: React.FC = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8">
           {stats.map((stat, index) => {
             const IconComponent = stat.icon;
             return (
@@ -50,10 +50,10 @@ const StatsSection: React.FC = () => {
                 <div className="inline-flex items-center justify-center w-16 h-16 bg-red-100 rounded-full mb-4">
                   <IconComponent className="w-8 h-8 text-red-600" />
                 </div>
-                <div className="text-3xl font-bold text-gray-900 mb-2">
+                <div className="text-2xl sm:text-3xl font-bold text-gray-900 mb-2">
                   {stat.value}
                 </div>
-                <div className="text-lg font-semibold text-gray-800 mb-1">
+                <div className="text-base sm:text-lg font-semibold text-gray-800 mb-1">
                   {stat.label}
                 </div>
                 <div className="text-sm text-gray-600">

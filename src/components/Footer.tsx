@@ -7,10 +7,10 @@ const Footer: React.FC = () => {
       <div className="container mx-auto px-4 py-12">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div>
-            <h3 className="text-2xl font-bold text-red-500 mb-4">NewsHub</h3>
+            <h3 className="text-2xl font-bold text-red-500 mb-4">dadapay</h3>
             <p className="text-gray-400 mb-4">
               Your trusted source for breaking news and quality journalism. 
-              Read, learn, and earn tokens while staying informed.
+              Read, learn, and earn rewards while staying informed.
             </p>
             <div className="flex space-x-4">
               <Facebook className="w-5 h-5 text-gray-400 hover:text-white cursor-pointer" />
@@ -46,7 +46,7 @@ const Footer: React.FC = () => {
             <div className="space-y-3">
               <div className="flex items-center">
                 <Mail className="w-4 h-4 mr-2" />
-                <span className="text-gray-400">contact@newshub.com</span>
+                <span className="text-gray-400">contact@dadapay.com</span>
               </div>
               <div className="flex items-center">
                 <Phone className="w-4 h-4 mr-2" />
@@ -62,7 +62,7 @@ const Footer: React.FC = () => {
 
         <div className="border-t border-gray-800 mt-8 pt-8 text-center">
           <p className="text-gray-400">
-            © 2024 NewsHub. All rights reserved. Built with ❤️ in Nigeria.
+            © 2024 dadapay. All rights reserved. Built with ❤️ in Nigeria.
           </p>
         </div>
       </div>
