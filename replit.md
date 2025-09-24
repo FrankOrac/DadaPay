@@ -4,6 +4,17 @@
 
 Read Earn Naira is a modern news reading platform built with React that gamifies news consumption by rewarding users with Naira tokens for reading articles. The application features a responsive design with category-based article filtering, user authentication, and a token-based reward system that incentivizes quality journalism engagement.
 
+## Recent Changes
+
+### September 24, 2025 - Initial Replit Setup
+- Imported project from GitHub and configured for Replit environment
+- Fixed TypeScript configuration issues by adding Node.js types to tsconfig.node.json
+- Installed all npm dependencies and resolved module resolution issues
+- Configured Vite development server with proper host settings (0.0.0.0:5000) and allowedHosts: true
+- Set up Frontend Server workflow for automatic server management
+- Configured deployment settings for production (autoscale with npm build and serve)
+- Verified both development and production builds work correctly
+
 ## User Preferences
 
 Preferred communication style: Simple, everyday language.
